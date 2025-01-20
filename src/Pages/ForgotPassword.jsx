@@ -29,7 +29,7 @@ export default function ForgotPassword() {
         md:mb-6"
 				>
 					<img
-						src="https://media.istockphoto.com/id/2163352281/photo/securing-cybersecurity-a-businesswoman-protecting-personal-data-preventing-online-theft.webp?a=1&b=1&s=612x612&w=0&k=20&c=8LpYEXeqJJ0cnLe3_f2rDCby7T7NsAtwkG3_ZuprUnI="
+						src="https://img.freepik.com/free-photo/high-angle-defocused-wooden-cubes-with-password-laptop_23-2148578071.jpg?t=st=1737378869~exp=1737382469~hmac=f373338d928eedb983f371c56437e94b8bff22024705ba893370078c66c9ca04&w=996"
 						alt="sign-in image"
 						className="w-full rounded-2xl"
 					/>
@@ -66,7 +66,7 @@ export default function ForgotPassword() {
 									className="text-blue-600
                  hover:text-blue-800 transition duration-200 ease-in-out "
 								>
-									Sign in instead
+									Sign in 
 								</Link>
 							</p>
 						</div>
