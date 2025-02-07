@@ -77,7 +77,7 @@ export default function CreateListing() {
 		setLoading(true);
 	  
 		// Validate discount price
-		if (discountedPrice >= regularPrice) {
+		if (+discountedPrice >= +regularPrice) {
 		  setLoading(false);
 		  toast.error("Discounted price must be less than regular price");
 		  return;
@@ -140,7 +140,8 @@ export default function CreateListing() {
 			imageUrls,
 			geoLocation,
 			userId,
-			timestamp: serverTimestamp()
+			timestamp: serverTimestamp(),
+			userRef: auth.currentUser.uid,
 		  };
 		  delete formDataCopy.images; // Remove images array
 	  
