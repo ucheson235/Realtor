@@ -21,10 +21,8 @@ for (const envVar of requiredEnvVars) {
 
 // Set up Express
 const app = express();
-
-
-// Enable CORS for all origins
-app.use(cors());
+app.use(express.json()); // Parse JSON request bodies
+app.use(cors()); // Enable CORS for all origins
 
 // Configure Cloudinary
 cloudinary.config({
@@ -42,6 +40,9 @@ const upload = multer({
     } else {
       cb(new Error('Only image files are allowed!'), false);
     }
+  },
+  limits: {
+    fileSize: 5 * 1024 * 1024, // Limit file size to 5MB
   },
 });
 
@@ -70,27 +71,39 @@ app.post('/upload', upload.single('file'), async (req, res) => {
     res.json({ url: result.secure_url }); // Return the uploaded image URL
   } catch (error) {
     console.error('Error uploading to Cloudinary:', error);
+    if (error.message === 'Only image files are allowed!') {
+      return res.status(400).json({ error: 'Only image files are allowed!' });
+    }
+    if (error.message === 'File too large') {
+      return res.status(400).json({ error: 'File size must be less than 5MB' });
+    }
     res.status(500).json({ error: 'Upload failed' });
   }
+});
+
+// Create a listing endpoint
+app.post("/listings", async (req, res) => {
+  try {
+    const listingData = req.body;
+
+    // Log the received data from the frontend (just for debugging)
+    console.log("Received data:", listingData);
+
+    // Respond to the client with a success message
+    res.status(201).json({ message: "Listing created successfully!" });
+  } catch (error) {
+    console.error('Error creating listing:', error);
+    res.status(500).json({ error: 'Failed to create listing' });
+  }
+});
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'OK' });
 });
 
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-});
-
-// Create a listing endpoint
-app.post("/listings", async (req, res) => {
-  try {
-    // Log the received data from the frontend (just for debugging)
-    console.log("Received data:", req.body);
-
-    // Respond to the client with a success message
-    res.status(201).json({ message: "Listing created successfully!" });
-
-  } catch (error) {
-    console.error('Error creating listing:', error);
-    res.status(500).json({ error: 'Failed to create listing' });
-  }
 });
