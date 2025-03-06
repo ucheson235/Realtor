@@ -9,3 +9,15 @@
 body{
   background-color: rgb(240, 253, 244);
 }
+
+.swiper-button-next:after,
+.swiper-button-prev:after{
+  color: #a8dadc;
+   display: block !important; 
+   z-index: 10;
+}
+
+.swiper-pagination-progressbar  .swiper-pagination-progressbar-fill{
+  background: #a8dadc !important;
+
+}
