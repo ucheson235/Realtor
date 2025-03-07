@@ -2,18 +2,22 @@ import { doc, getDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { db } from "../firebase";
+import { getAuth } from "firebase/auth";
 import Spinner from "../components/Spinner";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css/bundle";
 import "swiper/css/navigation";
 import { FaShare, FaMapMarkerAlt, FaBed,  FaBath, FaParking, FaChair  } from "react-icons/fa";
+import Contact from "../components/Contact";
 
 export default function Listing() {
+	const auth = getAuth();
 	const params = useParams();
 	const [listing, setListing] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [shareLinkCopied, setShareLinkCopied] = useState(false);
+	const [contactLandLord, setContactLandLord] = useState(false);
 
 	useEffect(() => {
 		async function fetchListing() {
@@ -83,7 +87,7 @@ export default function Listing() {
 				className="m-4 flex flex-col md:flex-row max-w-6xl lg:mx-auto p-4 rounded-lg 
 			shadow-lg bg-white lg:space-x-5"
 			>
-				<div className=" w-full h-[200px] lg:h-[400px]">
+				<div className=" w-full ">
 					<p className="text-2xl font-bold mb-3 text-blue-900">
 						{listing.name} - ${""}
 						{listing.offer
@@ -115,7 +119,7 @@ export default function Listing() {
 						<span className="font-semibold"> Description</span> -
 						{listing.description}
 					</p>
-					<ul className="flex items-center space-x-2 lg:space-x-10 text-sm font-semibold">
+					<ul className="flex items-center space-x-2 lg:space-x-10 text-sm font-semibold mb-6">
 					    <li className="flex items-center whitespace-nowrap">
 						 <FaBed className="text-lg mr-1" />
 						 {+ listing.bedrooms > 1 ? `${listing.bedrooms}  Beds` : "1 Bed"}
@@ -133,6 +137,19 @@ export default function Listing() {
 						 {listing.furnished ? "furnished" : "not furnished"}
 						</li>
 					</ul>
+					{listing.userRef !== auth.currentUser?.uid && !contactLandLord &&(
+
+						<div className="mt-12">
+							<button  onClick={()=>setContactLandLord(true)}
+							className="px-7 py-3 bg-blue-600 text-white
+							font-medium text-sm uppercase rounded shadow-md hover:bg-blue-700
+							hover:shadow-lg  focus:bg-blue-700 focus:shadow-lg w-full text-center
+							transition-150 ease-in-out">Contact LandLord</button>
+					</div>
+
+					)}
+				     {contactLandLord && <Contact userRef={listing.userRef} listing={listing}/>}
+					
 				</div>
 				<div className="bg-blue-300  w-full h-[200px] lg:h-[400px] z-10 overflow-x-hidden"></div>
 			</div>
