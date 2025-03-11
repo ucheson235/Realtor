@@ -147,7 +147,7 @@ export default function Listing() {
 							{listing.furnished ? "furnished" : "not furnished"}
 						</li>
 					</ul>
-					{listing.userRef !== auth.currentUser.uid && !contactLandLord && (
+					{listing.userRef !== auth.currentUser?.uid && !contactLandLord && (
 						<div className="mt-12">
 							<button
 								onClick={() => setContactLandLord(true)}
