@@ -169,16 +169,14 @@ export default function Listing() {
 						center={[6.5244, 3.3792]}
 						zoom={13}
 						scrollWheelZoom={false}
-						style={{ height: "100%", width: "100%"}}
+						style={{ height: "100%", width: "100%" }}
 					>
 						<TileLayer
 							attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 							url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 						/>
 						<Marker position={[6.5244, 3.3792]}>
-							<Popup>
-								Lagos, Nigeria
-							</Popup>
+							<Popup>{listing.address}</Popup>
 						</Marker>
 					</MapContainer>
 				</div>
