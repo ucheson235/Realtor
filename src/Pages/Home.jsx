@@ -147,7 +147,7 @@ export default function Home() {
 				{rentListings && rentListings.length > 0 && (
 					<div className="m-2 mb-6">
 						<h2 className="px-3 text-2xl mt-6 font-semibold ">Recent Rents</h2>
-						<Link to="/offers">
+						<Link to="/category/rent">
 							<p
 								className="px-3 text-small text-blue-600 hover:text-blue-800
 						transition duration-150 ease-in-out"
@@ -172,7 +172,7 @@ export default function Home() {
 				{saleListings && saleListings.length > 0 && (
 					<div className="m-2 mb-6">
 						<h2 className="px-3 text-2xl mt-6 font-semibold ">Recent Sales</h2>
-						<Link to="/offers">
+						<Link to="/category/sale">
 							<p
 								className="px-3 text-small text-blue-600 hover:text-blue-800
 						transition duration-150 ease-in-out"
