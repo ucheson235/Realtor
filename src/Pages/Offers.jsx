@@ -98,7 +98,7 @@ export default function Offers() {
 						<div className="flex justify-center items-center mt-6">
 							<button
 								onClick={onFetchMoreListings}
-								className="bg-white px-3 py-1.5 text-gray-700 border border-gray-300 hover:border-slate-600 rounded transition duration-150 ease-in-out"
+								className="bg-white px-3 py-1.5 text-gray-700 border border-gray-300 hover:border-slate-600 rounded transition duration-150 ease-in-out mb-10"
 							>
 								Load more
 							</button>

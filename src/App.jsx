@@ -13,13 +13,16 @@ import CreateListing from "./Pages/CreateListing";
 import EditListing from "./Pages/EditListing";
 import Listing from "./Pages/Listing";
 import Category from "./Pages/Category";
+import Footer from "./components/Footer";
 
 
 function App() {
   return (
-    <div>
-    <Router>
+    <div className="min-h-screen flex flex-col" >
+      
+      <Router>
       <Header />
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<PrivateRoute />}>
@@ -37,9 +40,10 @@ function App() {
         <Route path="edit-listing"  element={<PrivateRoute />}>
         <Route path="/edit-listing/:listingId" element={<EditListing />} />
         </Route>
-       
-       
+        
+
       </Routes>
+      <Footer/>
     </Router>
         <ToastContainer 
         position="top-right"
@@ -54,6 +58,7 @@ function App() {
         theme="dark"
         transition={Bounce}
         />
+    
     </div>
   );
 }
