@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col" >
       
-      <Router>
+      <Router basename="/Realtor">
       <Header />
       
       <Routes>
