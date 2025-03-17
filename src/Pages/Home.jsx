@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Slider from "../components/Slider";
 import { db } from "../firebase";
-import Spinner from "../components/Spinner";
+
 import {
 	collection,
 	getDocs,

@@ -10,8 +10,8 @@ import {
 	where,
 } from "firebase/firestore";
 import { db } from "../firebase";
-import Spinner from "../Components/Spinner";
-import ListingItem from "../Components/ListingItem";
+import Spinner from "../components/Spinner";
+import ListingItem from "../components/ListingItem";
 
 export default function Offers() {
 	const [listings, setListings] = useState([]);
