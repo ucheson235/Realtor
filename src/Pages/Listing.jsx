@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { db } from "../firebase";
 import { getAuth } from "firebase/auth";
-import Spinner from "../components/Spinner";
+import Spinner from "../components/Spinner.jsx";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css/bundle";

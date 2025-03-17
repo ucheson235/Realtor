@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
-import Spinner from "../components/Spinner";
+import Spinner from "../components/Spinner.jsx";
 import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, EffectFade, Autoplay } from "swiper/modules";

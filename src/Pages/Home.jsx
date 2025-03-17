@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Slider from "../components/Slider";
+import Slider from "../components/Slider.jsx";
 import { db } from "../firebase";
 
 import {

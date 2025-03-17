@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
-import OAuth from "../components/OAuth";
+import OAuth from "../components/OAuth.jsx";
 import { toast } from "react-toastify";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
