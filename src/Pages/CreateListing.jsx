@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Spinner from "../components/Spinner";
+import Spinner from "../components/Spinner.jsx";
 import { toast } from "react-toastify";
 import { getAuth } from "firebase/auth";
 import { serverTimestamp } from "firebase/firestore";

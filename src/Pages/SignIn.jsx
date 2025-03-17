@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaEyeSlash } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import OAuth from "../components/OAuth";
+import OAuth from "../components/OAuth.jsx";
 import { getAuth,  signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
 

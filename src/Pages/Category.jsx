@@ -10,8 +10,8 @@ import {
 	where,
 } from "firebase/firestore";
 import { db } from "../firebase";
-import Spinner from "../Components/Spinner";
-import ListingItem from "../Components/ListingItem";
+import Spinner from "../components/Spinner.jsx";
+import ListingItem from "../components/ListingItem.jsx";
 import { useParams } from "react-router-dom";
 
 export default function Category() {
